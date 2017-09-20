@@ -2,7 +2,7 @@
 				        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Daftar Pasien</h1>
+                    <h1 class="page-header">Admin</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -11,7 +11,7 @@
           
             
                 <td width='50%' align='right'>
-                     <a href='<?php echo base_url('pasien/tambah/')?>'>Input Pasien</a>
+                     <a href='<?php echo base_url('apotek/tambah/')?>'>Register</a>
                 </td>
             </tr>
             </form>
@@ -22,29 +22,27 @@
                                 <table class="datatable table table-striped table-bordered">
                 <tr>
                     <td class='td_judul' width='*' align='center'>No.</td>
-                    <td class='td_judul' width='*'>Nama </td>
-                    <td class='td_judul' width='*'>Alamat</td>
-                    <td class='td_judul' width='*' align='center'>Action</td>
+                    <td class='td_judul' width='*'>Nama</td>
+                    <td class='td_judul' width='*'>Username</td>
+                    <td class='td_judul' width='*'>Role</td>
+                    <td class='td_judul' width='20%' align='center'>Action</td>
 
                 </TR>
 						<?php 
 		$no=1;
 
-		foreach ($pasien as $p) {
+		foreach ($admin as $a) {
 						# code...
 										?>
 				<TR>
 					<TD class='td_isi' align='center'><?php echo $no++;?></TD>
-					<TD class='td_isi'><?php echo $p->nama;?></TD>
-					<TD class='td_isi'><?php echo $p->alamat;?></TD>
+					<TD class='td_isi'><?php echo $a->FULLNAME;?></TD>
+					<TD class='td_isi'><?php echo $a->USERNAME;?></TD>
+					<TD class='td_isi'><?php echo $a->ROLE;?></TD>
 					<TD class='td_isi' align='center'>
-				    <a href="<?php echo base_url() ?>pasien/edit?id=<?php echo $p->id ?>" class="btn btn-info btn-xs">
-                     <i class="fa fa-edit"> Edit</i>
-                     </a>
-                     <button class="btn btn-danger btn-xs" onclick="sweets()">
-                            <i class="fa fa-trash"> Delete</i>
-                            </button>
-			</TR>			
+				    <a href='<?php echo base_url('admin/edit/'.$a->ID_ADMIN)?>'>Edit</a> | <a href='<?php echo base_url('admin/index')?>'>Delete</a> | <a>Deactive</a>
+					</TD>
+			</TR>				
 				<?php
 					}
 				?>

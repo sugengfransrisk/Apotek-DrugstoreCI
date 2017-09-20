@@ -22,6 +22,7 @@ class apotek extends CI_Controller{
 
 
 	function index(){
+		$data['total'] = $this->apotekmodel->getCount();
 		$data['main_view'] = 'obat_view';
 		$data['obat'] = $this->apotekmodel->tampil_data()->result();
 		$this->load->view('template', $data);

@@ -6,7 +6,6 @@ class pasien extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('pasienmodel');
-		$this->load->helper('url');
 		if($this->session->userdata('logged_in') == false){
 			redirect('login');
 		}
@@ -48,33 +47,33 @@ class pasien extends CI_Controller{
 		redirect('pasien/index');
 	}
 
-		function edit($id){
+		public function edit(){
+		$id = $this->input->get('id');
+		//CHECK : Data Availability
 		$data['main_view'] = 'pasien_edit';
-		$where = array('id' => $id);
-		$data['pasien'] = $this->pasienmodel->edit_data($where,'pasien')->result();
-		$this->load->view('template',$data);
+		$data['detail'] = $this->pasienmodel->getDetail($id);
+		$this->load->view('template', $data);
+	}
+
+	public function update(){
+		if($this->input->post('submit')){
+			$this->form_validation->set_rules('nama_pasien', 'Nama', 'trim|required');
+			$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
+
+			if ($this->form_validation->run() == true) {
+				if($this->pasienmodel->update($this->input->post('id')) == true){
+					$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
+					redirect('pasien/edit?id='.$this->input->post('id'));
+				}else{
+					$this->session->set_flashdata('announce', 'Gagal menyimpan data');
+					redirect('pasien/edit?id='.$this->input->post('id'));
+				}
+			} else {
+				$this->session->set_flashdata('announce', validation_errors());
+				redirect('pasien/edit?id='.$this->input->post('id'));
+			}
 		}
-
-	function update(){
-	$id = $this->input->post('id');
-	$nama = $this->input->post('nama');
-	$alamat = $this->input->post('alamat');
-
-
-	$data = array(
-		'nama' => $nama,
-		'alamat' => $alamat
-		
-	);
-
-	$where = array(
-		'id' => $id
-	);
-
-	$this->pasienmodel->update_data($where,$data,'pasien');
-	redirect('pasien/index');
-}
-
+	}
 	
 
 }

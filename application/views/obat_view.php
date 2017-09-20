@@ -16,7 +16,9 @@
             </tr>
             </form>
             </table>
-            <br>
+                          <?php if($total == 0): ?>
+                    <div class="alert alert-danger">Tidak ada data</div>
+                    <?php else: ?>            <br>
             <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="datatable table table-striped table-bordered">
@@ -44,9 +46,10 @@
 					<TD class='td_isi'><?php echo $u->harga_beli;?></TD>
 					<TD class='td_isi'><?php echo $u->harga_jual;?></TD>
 					<TD class='td_isi' align='center'>
-				    <a href='<?php echo base_url('apotek/edit/'.$u->id)?>'>Edit</a> | <a href='<?php echo base_url('apotek/index')?>'>Delete</a>
+				    <a href='<?php echo base_url('apotek/edit/'.$u->id)?>'>Edit</a> | <a href='<?php echo base_url('apotek/hapus/'.$u->id)?>'>Delete</a>
 					</TD>
-			</TR>				
+			</TR>		
+
 				<?php
 					}
 				?>
@@ -55,3 +58,4 @@
 		</td>
 	</tr>
   </table>
+            <?php endif; ?>     

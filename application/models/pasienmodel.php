@@ -15,13 +15,26 @@ class pasienmodel extends CI_Model{
 		$this->db->insert($pasien,$data);
 	}
 
-	function edit_data($where,$pasien){		
-	return $this->db->get_where($pasien,$where);
-}
-	function update_data($where,$data,$pasien){
-		$this->db->where($where);
-		$this->db->update($pasien,$data);
-	}	
+	
+	public function getDetail($id){
+		return $this->db->where('id', $id)->get('pasien')->row();
+	}
+
+	public function update($id){
+		$data = array(
+
+			'nama'			=> $this->input->post('nama_pasien'),
+			'alamat'		=> $this->input->post('alamat')
+			
+			 );
+
+		$this->db->where('id', $id)->update('pasien', $data);
+		if($this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 
 

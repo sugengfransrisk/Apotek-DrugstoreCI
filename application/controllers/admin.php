@@ -14,10 +14,73 @@ class Admin extends CI_Controller {
 	
 	}
 
-	 function index()
-	{
-		
+	function tambah(){
+
+		$data['main_view'] = 'register';
+		$this->load->view('template', $data);
 	}
+
+
+	function index(){
+		$data['main_view'] = 'admin_view';
+		$data['admin'] = $this->adminmodel->tampil_data()->result();
+		$this->load->view('template', $data);
+	}
+
+		function hapus($id){
+		$where = array('id' => $id);
+		$this->apotekmodel->hapus_data($where,'admin');
+		redirect('admin/index');
+	}
+
+		function tambah_aksi(){
+		$fullname = $this->input->post('fullname');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+
+ 
+		$data = array(
+			'FULLNAME' => $fullname,
+			'USERNAME' => $username,
+			'PASSWORD' => $password
+
+			);
+		$this->adminmodel->input_data($data,'admin');
+		redirect('admin/index');
+	}
+
+		function edit($id){
+		$data['main_view'] = 'obat_edit';
+		$where = array('id' => $id);
+		$data['obat'] = $this->apotekmodel->edit_data($where,'obat')->result();
+		$this->load->view('template',$data);
+		}
+
+		function update(){
+		$nama = $this->input->post('nama');
+		$produksi = $this->input->post('produksi');
+		$tahun_pembelian = $this->input->post('tahun_pembelian');
+		$harga_beli = $this->input->post('harga_beli');
+		$harga_jual = $this->input->post('harga_jual');
+
+
+ 
+		$data = array(
+			'nama' => $nama,
+			'produksi' => $produksi,
+			'tahun_pembelian' => $tahun_pembelian,
+			'harga_beli' => $harga_beli,
+			'harga_jual' => $harga_jual
+			);
+		$where = array(
+		'id' => $id
+		);
+
+		$this->apotekmodel->update_data($where,$data,'obat');
+		redirect('apotek/index');
+}
+
+	
 
 }
 

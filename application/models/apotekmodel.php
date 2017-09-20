@@ -23,4 +23,8 @@ class apotekmodel extends CI_Model{
 		$this->db->update($obat,$data);
 	}	
 
+public function getCount(){
+		return $this->db->count_all('obat');
+	}
+
 }

@@ -20,7 +20,7 @@
 					Nama Obat 
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="nama" class='form-control' size='30' value="">
+					<input type="text" name="nama" class='form-control' size='30' required="" value="">
 				</td>
 			</tr>
 			<tr>
@@ -28,34 +28,23 @@
 					Produksi
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="produksi" class='form-control' size='30' value="">
+					<input type="text" name="produksi" class='form-control' required="" size='30' value="">
 				</td>
 			</tr>
-			<div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                    <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
-    </div>
-</div>
+			<tr>
+				<td width='20%' class='td_isi'>
+					Tahun Pembelian
+				</td>
+				<td width='*' class='td_isi'>
+					<input type="text" name="tahun_pembelian" required="" class='form-control' size='30' value="">
+				</td>
+			</tr>
 			<tr>
 				<td width='20%' class='td_isi'>
 					Harga Beli
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="harga_beli" class='form-control' size='30' value="">
+					<input type="text" name="harga_beli" required="" class='form-control' size='30' value="">
 				</td>
 			</tr>
 			<tr>
@@ -63,7 +52,7 @@
 					Harga Jual
 				</td>
 				<td width='*' class='input-group'>
-					<input type="text" name="harga_jual" class='form-control' size='30' value="">
+					<input type="text" name="harga_jual" required="" class='form-control' size='30' value="">
 				</td>
 			</tr>
 

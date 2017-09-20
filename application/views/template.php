@@ -88,7 +88,7 @@
                         
 
                         <li>
-                            <a href="<?php echo base_url('Dashboard/index')?>"><i class="fa fa-bar-chart-o fa-fw"></i>Dashboard<span class="fa arrow"></span></a>
+                            <a href="<?php echo base_url('Dashboard/index')?>"><i class="fa fa-bar-chart-o fa-fw"></i>Dashboard<span class=""></span></a>
                          <?php if($this->session->userdata('role')=='pegawai'): ?>
                             <!-- /.nav-second-level -->
                         </li>
@@ -124,8 +124,9 @@
                                     <a href="<?php echo base_url('admin/index')?>">Daftar Admin</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('admin/tambah')?>">Input Admin</a>
+                                    <a href="<?php echo base_url('admin/tambah')?>">Register</a>
                                 </li>
+
                             </ul>
                         <?php endif; ?>
                     
@@ -140,6 +141,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
+        
         <?php
 			$this->load->view($main_view);
 		?>
