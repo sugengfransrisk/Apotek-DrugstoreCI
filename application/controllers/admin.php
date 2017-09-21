@@ -21,6 +21,7 @@ class Admin extends CI_Controller {
 
 	}
 
+	function changestatus()
 	{
 		$id=$_GET['uid'];
 		$r=$_GET['r'];
