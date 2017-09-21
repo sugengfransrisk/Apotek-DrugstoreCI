@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Admin Apotek 1.0</a>
+               <a class="navbar-brand "  href=""><b>Admin</b>APOTEK 1.0</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -93,7 +93,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-glass-o fa-fw"></i> Obat<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-glass fa-fw"></i> Obat<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url('apotek/index')?>">Daftar Obat</a>
@@ -106,7 +106,7 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-bar-user-o fa-fw"></i> Pasien<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wheelchair fa-fw"></i> Pasien<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url('pasien/index')?>">Daftar Pasien</a>
@@ -115,10 +115,21 @@
                                     <a href="<?php echo base_url('pasien/tambah')?>">Input Pasien</a>
                                 </li>
                             </ul>
+
+                            <li>
+                            <a href="#"><i class="fa fa-user-md fa-fw"></i> Petugas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo base_url('petugas/index')?>">Daftar Petugas</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo base_url('petugas/tambah')?>">Input petugas</a>
+                                </li>
+                            </ul>
                                 <?php endif; ?>
                              <?php if($this->session->userdata('role')=='admin'): ?>
                              <li>
-                            <a href="#"><i class="fa fa-bar-user-o fa-fw"></i> Admin<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Admin<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="<?php echo base_url('admin/index')?>">Daftar Admin</a>

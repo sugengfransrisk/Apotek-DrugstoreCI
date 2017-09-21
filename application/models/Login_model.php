@@ -15,14 +15,17 @@ class Login_model extends CI_Model {
 	public function userCheck(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		$status = $this->input->post('status');
+
 		$now = date('d-m-Y H:i:s');
 
-		$kueri = $this->db->where('USERNAME', $username)->where('PASSWORD',$password)->get('admin');
+		$kueri = $this->db->where('USERNAME', $username)->where('PASSWORD',$password)->where('status',$status)->get('admin');
 		if($kueri->num_rows() > 0){
 			$data = array(
 				'username'	=> $kueri->row()->USERNAME,
 				'logged_in'	=> true,
-				'role'		=> $kueri->row()->ROLE
+				'role'		=> $kueri->row()->ROLE,
+				'status'  => 'active'
 			);
 			
 			$this->session->set_userdata($data);

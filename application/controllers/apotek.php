@@ -38,8 +38,7 @@ class apotek extends CI_Controller{
 		$nama = $this->input->post('nama');
 		$produksi = $this->input->post('produksi');
 		$tahun_pembelian = $this->input->post('tahun_pembelian');
-		$harga_beli = $this->input->post('harga_beli');
-		$harga_jual = $this->input->post('harga_jual');
+		$harga = $this->input->post('harga');
 
 
  
@@ -47,44 +46,52 @@ class apotek extends CI_Controller{
 			'nama' => $nama,
 			'produksi' => $produksi,
 			'tahun_pembelian' => $tahun_pembelian,
-			'harga_beli' => $harga_beli,
-			'harga_jual' => $harga_jual
+			'harga' => $harga			
 			);
 		$this->apotekmodel->input_data($data,'obat');
 		redirect('apotek/index');
 	}
 
-		function edit($id){
-		$data['main_view'] = 'obat_edit';
-		$where = array('id' => $id);
-		$data['obat'] = $this->apotekmodel->edit_data($where,'obat')->result();
-		$this->load->view('template',$data);
+		function updateview()
+	{
+	    $data['main_view'] = 'obat_edit';
+		$id=$_GET['uid'];
+		$this->load->model('apotekmodel');
+		$data['nama']=$this->apotekmodel->get_obat_by_id($id,"nama");
+		$data['produksi']=$this->apotekmodel->get_obat_by_id($id,"produksi");
+		$data['tahun_pembelian']=$this->apotekmodel->get_obat_by_id($id,"tahun_pembelian");
+		$data['harga']=$this->apotekmodel->get_obat_by_id($id,"harga");
+
+
+		$data['id']=$id;
+		if(!empty($data['nama']))
+		{
+			$this->load->view('template',$data);
+		}else{
+			redirect('apotek');
 		}
+	}
+	
 
-		function update(){
-		$nama = $this->input->post('nama');
-		$produksi = $this->input->post('produksi');
-		$tahun_pembelian = $this->input->post('tahun_pembelian');
-		$harga_beli = $this->input->post('harga_beli');
-		$harga_jual = $this->input->post('harga_jual');
-
-
- 
-		$data = array(
-			'nama' => $nama,
-			'produksi' => $produksi,
-			'tahun_pembelian' => $tahun_pembelian,
-			'harga_beli' => $harga_beli,
-			'harga_jual' => $harga_jual
+	function update()
+	{
+		$id=$_GET['uid'];
+		$this->load->model('apotekmodel');
+		$data=array(
+				'nama'=>$this->input->post('nama'),
+				'produksi'=>$this->input->post('produksi'),
+				'tahun_pembelian'=>$this->input->post('tahun_pembelian'),
+				'harga'=>$this->input->post('harga')
+				
 			);
-		$where = array(
-		'id' => $id
-		);
-
-		$this->apotekmodel->update_data($where,$data,'obat');
-		redirect('apotek/index');
-}
-
+		if($this->apotekmodel->update_obat($id,$data)==TRUE)
+		{
+			redirect('apotek');
+		}else{
+			redirect("obat/updateview?uid=".$id."");
+		}
+	}
+	
 	
 
 }

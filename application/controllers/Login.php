@@ -6,12 +6,7 @@ class Login extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Login_model');
-		if($this->Login_model->accountCheck() == true){
-			redirect('setup');
-		}
-		if($this->session->userdata('logged_in') == true){
-			redirect('login');
-		}
+		
 		
 	}
 
@@ -24,6 +19,7 @@ class Login extends CI_Controller {
 		if($this->input->post('login')){
 			$this->form_validation->set_rules('username', 'Username', 'trim|required');
 			$this->form_validation->set_rules('password', 'Password', 'trim|required');
+			$this->form_validation->set_rules('status', 'Status', 'trim|required');
 
 			if ($this->form_validation->run() == true) {
 				if($this->Login_model->userCheck() == true){
@@ -39,6 +35,10 @@ class Login extends CI_Controller {
 				$this->session->set_flashdata('announce', validation_errors());
 				redirect('login');
 			}
+			} else {
+				$this->session->set_flashdata('announce', 'Account disabled');
+				redirect('login');
+			
 		}
 	}
 }

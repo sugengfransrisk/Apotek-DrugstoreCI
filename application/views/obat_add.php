@@ -44,18 +44,10 @@
 					Harga Beli
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="harga_beli" required="" class='form-control' size='30' value="">
+					<input type="text" name="harga" required="" class='form-control' size='30' value="">
 				</td>
 			</tr>
-			<tr>
-				<td width='20%' class='td_isi'>
-					Harga Jual
-				</td>
-				<td width='*' class='input-group'>
-					<input type="text" name="harga_jual" required="" class='form-control' size='30' value="">
-				</td>
-			</tr>
-
+			
 
 
 			

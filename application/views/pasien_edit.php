@@ -26,9 +26,10 @@
                                 }
                             }
                         ?>
+                        <?php
 
-			<form action="<?php echo base_url() ?>pasien/update/" method="post">
-
+					echo form_open('pasien/update?uid='.$id.'');
+						?>
 			
 					<tr>
 						</tr>
@@ -36,9 +37,7 @@
 				<td width='20%' class='td_isi'>
 					id
 				</td>
-				<td width='*' class='td_isi'>
-					<input type="text" name="id" class='form-control' disabled="" size='30' value="<?php echo $detail->id ?>">
-				</td>
+				
 			</tr>
 			<tr>	
 			</tr>
@@ -47,7 +46,7 @@
 					Nama Pasien
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="nama_pasien" class='form-control' size='30'" value="<?php echo $detail->nama ?>">
+					<input type="text" name="nama_pasien" class='form-control' size='30'" value="<?=$nama;?>">
 				</td>
 			</tr>
 			<tr>
@@ -55,7 +54,7 @@
 					Alamat
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="alamat" class='form-control' size='30' value="<?php echo $detail->alamat ?>">
+					<input type="text" name="alamat" class='form-control' size='30' value="<?=$alamat;?>">
 				</td>
 			</tr>
 			

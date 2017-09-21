@@ -20,20 +20,35 @@ class pasienmodel extends CI_Model{
 		return $this->db->where('id', $id)->get('pasien')->row();
 	}
 
-	public function update($id){
-		$data = array(
-
-			'nama'			=> $this->input->post('nama_pasien'),
-			'alamat'		=> $this->input->post('alamat')
-			
-			 );
-
-		$this->db->where('id', $id)->update('pasien', $data);
-		if($this->db->affected_rows() > 0){
-			return true;
+		function get_pasien_by_id($id,$output)
+	{
+		$this->load->library('database_library');
+		$this->database_library->pake_table('pasien');
+		$isdata=$this->database_library->ambil_satu_data('id',$id,$output);
+		if(!empty($isdata))
+		{
+			return $isdata;
 		}else{
-			return false;
+			return null;
 		}
+	}
+	
+	function update_pasien($id,$data)
+	{
+		$this->load->library('database_library');
+		
+			$this->database_library->pake_table('pasien');		
+			$arr=array(
+				
+				'id'=>$id
+				);			
+			if($this->database_library->ubah_data($arr,$data)==TRUE)
+			{
+				return true;
+			}else{
+				return false;
+			}
+		
 	}
 
 

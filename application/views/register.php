@@ -19,11 +19,21 @@
                                     <label class="sr-only" for="f1-password">Username</label>
                                     <input type="text" name="username" placeholder="Username" class="f1-password form-control" id="f1-password">
                                 </div>
+                                 <div class="form-group">
+                                  <select class="form-control" placeholder="Role" name="role" id="role">
+                                    <option>admin</option>
+                                    <option>pegawai</option>
+                            
+                                  </select>
+                                </div> 
                                 <div class="form-group">
                                     <label class="sr-only">Password</label>
                                     <input type="password" name="password" placeholder="Password" 
                                                         class="f1-repeat-password form-control" id="f1-repeat-password">
                                 </div>
+                                <input type="text" name="status" hidden="" value="active" class="">
+
+
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="submit" name="setup" class="btn btn-submit">Submit</button>

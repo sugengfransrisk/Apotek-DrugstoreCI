@@ -47,31 +47,37 @@ class pasien extends CI_Controller{
 		redirect('pasien/index');
 	}
 
-		public function edit(){
-		$id = $this->input->get('id');
-		//CHECK : Data Availability
-		$data['main_view'] = 'pasien_edit';
-		$data['detail'] = $this->pasienmodel->getDetail($id);
-		$this->load->view('template', $data);
+		function updateview()
+	{
+	    $data['main_view'] = 'pasien_edit';
+		$id=$_GET['uid'];
+		$this->load->model('pasienmodel');
+		$data['nama']=$this->pasienmodel->get_pasien_by_id($id,"nama");
+		$data['alamat']=$this->pasienmodel->get_pasien_by_id($id,"alamat");
+		$data['id']=$id;
+		if(!empty($data['nama']))
+		{
+			$this->load->view('template',$data);
+		}else{
+			redirect('pasien');
+		}
 	}
+	
 
-	public function update(){
-		if($this->input->post('submit')){
-			$this->form_validation->set_rules('nama_pasien', 'Nama', 'trim|required');
-			$this->form_validation->set_rules('alamat', 'Alamat', 'trim|required');
-
-			if ($this->form_validation->run() == true) {
-				if($this->pasienmodel->update($this->input->post('id')) == true){
-					$this->session->set_flashdata('announce', 'Berhasil menyimpan data');
-					redirect('pasien/edit?id='.$this->input->post('id'));
-				}else{
-					$this->session->set_flashdata('announce', 'Gagal menyimpan data');
-					redirect('pasien/edit?id='.$this->input->post('id'));
-				}
-			} else {
-				$this->session->set_flashdata('announce', validation_errors());
-				redirect('pasien/edit?id='.$this->input->post('id'));
-			}
+	function update()
+	{
+		$id=$_GET['uid'];
+		$this->load->model('pasienmodel');
+		$data=array(
+				'nama'=>$this->input->post('nama_pasien'),
+				'alamat'=>$this->input->post('alamat')
+				
+			);
+		if($this->pasienmodel->update_pasien($id,$data)==TRUE)
+		{
+			redirect('pasien');
+		}else{
+			redirect("pasien/updateview?uid=".$id."");
 		}
 	}
 	

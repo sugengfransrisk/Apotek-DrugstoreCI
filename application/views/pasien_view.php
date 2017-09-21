@@ -38,12 +38,11 @@
 					<TD class='td_isi'><?php echo $p->nama;?></TD>
 					<TD class='td_isi'><?php echo $p->alamat;?></TD>
 					<TD class='td_isi' align='center'>
-				    <a href="<?php echo base_url() ?>pasien/edit?id=<?php echo $p->id ?>" class="btn btn-info btn-xs">
-                     <i class="fa fa-edit"> Edit</i>
+                    <a class="btn btn-outline btn-info btn-xs" onclick="window.location='<?=base_url();?>pasien/updateview?uid=<?=$p->id;?>'"><i></i> Edit</a>
                      </a>
-                     <button class="btn btn-danger btn-xs" onclick="sweets()">
-                            <i class="fa fa-trash"> Delete</i>
-                            </button>
+                     <a class="btn btn-outline btn-danger btn-xs" onclick="window.location='<?=base_url();?>pasien/hapus/<?=$p->id;?>'">
+                            <b> Delete</b>
+                            </a>
 			</TR>			
 				<?php
 					}

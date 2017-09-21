@@ -27,8 +27,7 @@
                     <td class='td_judul' width='*'>Nama Obat</td>
                     <td class='td_judul' width='*'>Produksi</td>
                     <td class='td_judul' width='*'>Thn. Pembelian</td>
-                    <td class='td_judul' width='*'>Harga Beli</td>
-                    <td class='td_judul' width='*'>Harga Jual</td>
+                    <td class='td_judul' width='*'>Harga </td>
                     <td class='td_judul' width='*' align='center'>Action</td>
 
                 </TR>
@@ -43,10 +42,13 @@
 					<TD class='td_isi'><?php echo $u->nama;?></TD>
 					<TD class='td_isi'><?php echo $u->produksi;?></TD>
 					<TD class='td_isi'><?php echo $u->tahun_pembelian;?></TD>
-					<TD class='td_isi'><?php echo $u->harga_beli;?></TD>
-					<TD class='td_isi'><?php echo $u->harga_jual;?></TD>
+					<TD class='td_isi'><?php echo $u->harga;?></TD>
 					<TD class='td_isi' align='center'>
-				    <a href='<?php echo base_url('apotek/edit/'.$u->id)?>'>Edit</a> | <a href='<?php echo base_url('apotek/hapus/'.$u->id)?>'>Delete</a>
+				    <a class="btn btn-outline btn-info btn-xs" onclick="window.location='<?=base_url();?>apotek/updateview?uid=<?=$u->id;?>'"><i></i> Edit</a>
+                     </a>
+                     <a class="btn btn-outline btn-danger btn-xs" onclick="window.location='<?=base_url();?>apotek/hapus/<?=$u->id;?>'">
+                            <b> Delete</b>
+                            </a>
 					</TD>
 			</TR>		
 

@@ -18,6 +18,32 @@ class Admin extends CI_Controller {
 
 		$data['main_view'] = 'register';
 		$this->load->view('template', $data);
+
+	}
+
+	{
+		$id=$_GET['uid'];
+		$r=$_GET['r'];
+		$this->load->model('adminmodel');
+		if($this->adminmodel->change_status_user($id,$r)==TRUE)
+		{
+			redirect('admin/index');
+		}else{
+			redirect('admin/index');
+		}
+	}
+
+	function changeakses()
+	{
+		$id=$_GET['uid'];
+		$r=$_GET['r'];
+		$this->load->model('adminmodel');
+		if($this->adminmodel->change_role_user($id,$r)==TRUE)
+		{
+			redirect('admin/index');
+		}else{
+			redirect('admin/index');
+		}
 	}
 
 
@@ -28,8 +54,8 @@ class Admin extends CI_Controller {
 	}
 
 		function hapus($id){
-		$where = array('id' => $id);
-		$this->apotekmodel->hapus_data($where,'admin');
+		$where = array('ID_ADMIN' => $id);
+		$this->adminmodel->hapus_data($where,'admin');
 		redirect('admin/index');
 	}
 
@@ -37,12 +63,17 @@ class Admin extends CI_Controller {
 		$fullname = $this->input->post('fullname');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		$role     = $this->input->post('role');
+		$status   = $this->input->post('status');
 
  
 		$data = array(
 			'FULLNAME' => $fullname,
 			'USERNAME' => $username,
-			'PASSWORD' => $password
+			'PASSWORD' => $password,
+			'ROLE' 	   => $role,
+			'status'   => $status
+
 
 			);
 		$this->adminmodel->input_data($data,'admin');

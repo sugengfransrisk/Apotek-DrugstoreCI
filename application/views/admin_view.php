@@ -2,7 +2,7 @@
 				        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Admin</h1>
+                    <h1 class="page-header">Manajemen Admin</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -10,21 +10,24 @@
              <tr>
           
             
-                <td width='50%' align='right'>
-                     <a href='<?php echo base_url('apotek/tambah/')?>'>Register</a>
-                </td>
+               
             </tr>
             </form>
             </table>
+             <td>
+                     <a class="fa fa-plus" href='<?php echo base_url('admin/tambah/')?>'>  <b>Register</b></a>
+                </td>
             <br>
             <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="datatable table table-striped table-bordered">
-                <tr>
-                    <td class='td_judul' width='*' align='center'>No.</td>
-                    <td class='td_judul' width='*'>Nama</td>
-                    <td class='td_judul' width='*'>Username</td>
-                    <td class='td_judul' width='*'>Role</td>
+                                <table class="table table-striped table-bordered table-hover">
+                <tr align="center">
+                    <td align='center'>No.</td>
+                    <td>Nama</td>
+                    <td>Username</td>
+                    <td>Role</td>
+                    <td>Status</td>
+
                     <td class='td_judul' width='20%' align='center'>Action</td>
 
                 </TR>
@@ -34,20 +37,44 @@
 		foreach ($admin as $a) {
 						# code...
 										?>
-				<TR>
-					<TD class='td_isi' align='center'><?php echo $no++;?></TD>
-					<TD class='td_isi'><?php echo $a->FULLNAME;?></TD>
-					<TD class='td_isi'><?php echo $a->USERNAME;?></TD>
-					<TD class='td_isi'><?php echo $a->ROLE;?></TD>
-					<TD class='td_isi' align='center'>
-				    <a href='<?php echo base_url('admin/edit/'.$a->ID_ADMIN)?>'>Edit</a> | <a href='<?php echo base_url('admin/index')?>'>Delete</a> | <a>Deactive</a>
+				<TR align="center">
+					<TD  align='center'><?php echo $no++;?></TD>
+					<TD ><?php echo $a->FULLNAME;?></TD>
+					<TD ><?php echo $a->USERNAME;?></TD>
+
+					<TD >
+                     <select class="form-control" value="<?php echo $a->ROLE;?>" placeholder="Role" name="role" id="role">
+                                    <option value="<?php echo $a->ROLE;?>" > <?php echo $a->ROLE;?></option>
+                                     <option>--PILIH--</option>
+                                    <option value="admin" onclick="window.location='<?=base_url();?>admin/changeakses?uid=<?=$a->ID_ADMIN;?>&r=admin'">admin</option>
+                                    <option value="pegawai" onclick="window.location='<?=base_url();?>admin/changeakses?uid=<?=$a->ID_ADMIN;?>&r=pegawai'">pegawai</option>
+                    <TD ><?php echo $a->status;?></TD>
+
+					<TD  align='center'>
+                        
+                        <?php
+                                $ss=$a->status;
+                        if($ss=="deactive")
+                        {
+                        ?>
+                        <a class="btn btn-outline btn-success btn-xs" onclick="window.location='<?=base_url();?>admin/changestatus?uid=<?=$a->ID_ADMIN;?>&r=active'"><b>Active</b> </a>
+                        <?php
+                        }else{
+                        ?>
+                        <a class="btn btn-outline btn-warning btn-xs" onclick="window.location='<?=base_url();?>admin/changestatus?uid=<?=$a->ID_ADMIN;?>&r=deactive'"><b>Deactive</b> </a>
+                        <?php } ?>
+                        <a class="btn btn-outline btn-danger btn-xs" onclick="window.location='<?=base_url();?>admin/hapus/<?=$a->ID_ADMIN;?>'"><b>Delete</b> </a>
+                        </td>
+                        </tr>
+                        <?php }
+                        ?>
+
+
 					</TD>
 			</TR>				
-				<?php
-					}
-				?>
-
+				
 
 		</td>
 	</tr>
   </table>
+

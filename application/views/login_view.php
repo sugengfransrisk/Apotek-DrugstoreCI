@@ -24,7 +24,7 @@
 
   <body class="login">
     <div>
-      <a class="hiddenanchor" id="signup"></a>
+      <a class="button" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
 
       <div class="login_wrapper">
@@ -48,9 +48,14 @@
               <div>
                 <input type="password" class="form-control" name="password" placeholder="Password" />
               </div>
+                <div>
+                <input type="hidden" class="form-control" value="active" name="status" placeholder="Password" />
+              </div>
+
               <div>
                 <input type="submit" name="login" class="btn btn-default submit pull-right" value="Login" />
               </div>
+              
 
               <div class="clearfix"></div>
 
@@ -59,7 +64,7 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-glass"></i>  Apotik Admin 1.0</h1>
+                  <h1><i class="fa fa-glass"></i><b>Admin</b>APOTEK 1.0</h1>
                   <p>Copyright © <?php echo date('Y') ?> Mastedz Soft</p>
                 </div>
               </div>

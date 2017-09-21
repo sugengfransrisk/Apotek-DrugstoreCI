@@ -13,6 +13,55 @@ function tampil_data()
 	$this->db->delete($admin);
 }
 
+	function changestatus()
+	{
+		$id=$_GET['uid'];
+		$r=$_GET['r'];
+		$this->load->model('adminmodel');
+		if($this->adminmodel->change_status_user($id,$r)==TRUE)
+		{
+			redirect('admin/index');
+		}else{
+			redirect('admin/index');
+		}
+	}
+
+	function change_status_user($idUser,$role)
+	{
+		$this->load->library('database_library');
+		$this->database_library->pake_table('admin');
+		$arraysearch=array(
+				'ID_ADMIN'=>$idUser,
+				);
+		$data=array(
+				'status'=>$role,
+				);
+		if($this->database_library->ubah_data($arraysearch,$data)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function change_role_user($idUser,$role)
+	{
+		$this->load->library('database_library');
+		$this->database_library->pake_table('admin');
+		$arraysearch=array(
+				'ID_ADMIN'=>$idUser,
+				);
+		$data=array(
+				'ROLE'=>$role,
+				);
+		if($this->database_library->ubah_data($arraysearch,$data)==TRUE)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	function input_data($data,$admin){
 		$this->db->insert($admin,$data);
 	}

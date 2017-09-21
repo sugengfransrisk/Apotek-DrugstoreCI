@@ -8,16 +8,18 @@
             </div>
             <!-- /.row -->
 
-					<?php foreach($obat as $u){ ?>
-			<form action="<?php echo base_url(). 'apotek/update'; ?>" method="post">
+					 <?php
 
+					echo form_open('apotek/update?uid='.$id.'');
+						?>
+			
 			
 		<tr>
 				<td width='20%' class='td_isi'>
 					ID 
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="id" class='form-control' size='30' value="<?php echo $u->id ?>">
+					<input type="text" name="id" class='form-control' size='30' value="<?=$id ?>">
 				</td>
 			</tr>
 			<tr>
@@ -25,7 +27,7 @@
 					Nama Obat 
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="nama" class='form-control' size='30' value="<?php echo $u->nama ?>">
+					<input type="text" name="nama" class='form-control' size='30' value="<?=$nama?>">
 				</td>
 			</tr>
 			<tr>
@@ -33,7 +35,7 @@
 					Produksi
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="produksi" class='form-control' size='30' value="<?php echo $u->produksi ?>">
+					<input type="text" name="produksi" class='form-control' size='30' value="<?=$produksi?>">
 				</td>
 			</tr>
 			<tr>
@@ -41,26 +43,20 @@
 					Tahun Pembelian
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="tahun_pembelian" class='form-control' size='30' value="<?php echo $u->tahun_pembelian ?>">
+					<input type="text" name="tahun_pembelian" class='form-control' size='30' value="<?=$tahun_pembelian ?>">
 				</td>
 			</tr>
 			<tr>
 				<td width='20%' class='td_isi'>
-					Harga Beli
+					Harga 
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="harga_beli" class='form-control' size='30' value="<?php echo $u->harga_beli ?>">
+					<input type="text" name="harga" class='form-control' size='30' value="<?=$harga ?>">
 				</td>
 			</tr>
 			<tr>
-				<td width='20%' class='td_isi'>
-					Harga Jual
-				</td>
-				<td width='*' class='input-group'>
-					<input type="text" name="harga_jual" class='form-control' size='30' value="<?php echo $u->harga_jual ?>">
-				</td>
-			</tr>
-
+		
+				
 
 
 			
@@ -77,7 +73,7 @@
 				</td>
 			</tr>
 			</form>
-				<?php }?>
+			
 			</table>
 		</td>
   </table>
