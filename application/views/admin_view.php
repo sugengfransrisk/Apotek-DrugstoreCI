@@ -7,18 +7,16 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-             <tr>
-          
-            
-               
-            </tr>
+             
             </form>
             </table>
-             <td>
-                     <a class="fa fa-plus" href='<?php echo base_url('admin/tambah/')?>'>  <b>Register</b></a>
-                </td>
-            <br>
+             
+            
             <div class="panel-body">
+                <a class="btn btn-success" href='<?php echo base_url('admin/tambah/')?>'>Register</a>
+                <br>
+            </br>
+  
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                 <tr align="center">

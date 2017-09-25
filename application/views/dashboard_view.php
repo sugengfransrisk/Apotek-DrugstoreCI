@@ -41,13 +41,13 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
-                                        <?php echo $obtCount ?> 
+                                        <?php echo $pgCount ?> 
                                     </div>
                                     <div>Jumlah Pegawai</div>
                                 </div>
                             </div>
                         </div>
-                        <a href="<?php echo base_url('apotek/index')?>">
+                        <a href="<?php echo base_url('pegawai/index')?>">
                             <div class="panel-footer">
                                 <span class="pull-left">Lihat Detail</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-xs-9 text-right">
                                     <div class="huge">
-                                        <?php echo $obtCount ?> 
+                                        <?php echo $trCount ?> 
                                     </div>
                                     <div>Jumlah Transaksi</div>
                                 </div>

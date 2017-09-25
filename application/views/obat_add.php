@@ -36,19 +36,24 @@
 					Tahun Pembelian
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="tahun_pembelian" required="" class='form-control' size='30' value="">
+					<input type="year" name="tahun_pembelian" required="" class="form-control years" size='30' value="">
 				</td>
 			</tr>
 			<tr>
 				<td width='20%' class='td_isi'>
-					Harga Beli
+					Harga 
 				</td>
 				<td width='*' class='td_isi'>
 					<input type="text" name="harga" required="" class='form-control' size='30' value="">
 				</td>
 			</tr>
-			
-
+			<td width='20%' class='td_isi'>
+			Deskripsi
+		   </td>
+		  <div class="input-group">
+			<span class="input-group-addon"><i></i></span>
+			<textarea id="deskripsi" name="deskripsi" value="" placeholder="Deskripsi Obat" class="form-control" ></textarea>
+			</div>
 
 			
 			
@@ -56,3 +61,15 @@
 				<td width='100%' class='td_isi' colspan='2'>
 					<input type="submit" name='tombol_simpan' value='Simpan' class='tombol'>
 			<table align='right'>
+
+  <script type="text/javascript">
+$(".years").datetimepicker({
+    format: "yyyy", 
+    startView: 'decade',
+    minView: 'decade',
+    viewSelect: 'decade',
+    autoclose: true,
+});
+
+  </script>
+

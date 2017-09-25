@@ -2,7 +2,7 @@
 					        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Edit Pasien</h1>
+                    <h1 class="page-header">Edit pegawai</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -28,7 +28,7 @@
                         ?>
                         <?php
 
-					echo form_open('pasien/update?uid='.$id.'');
+					echo form_open('pegawai/update?uid='.$id.'');
 						?>
 			
 					<tr>
@@ -41,10 +41,10 @@
 			</tr>
 			<tr>
 				<td width='20%' class='td_isi'>
-					Nama Pasien
+					Nama pegawai
 				</td>
 				<td width='*' class='td_isi'>
-					<input type="text" name="nama_pasien" class='form-control' size='30'" value="<?=$nama;?>">
+					<input type="text" name="nama_pegawai" class='form-control' size='30'" value="<?=$nama;?>">
 				</td>
 			</tr>
 			<tr>

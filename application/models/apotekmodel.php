@@ -11,6 +11,7 @@ class apotekmodel extends CI_Model{
 	$this->db->delete($obat);
 }
 
+
 	function input_data($data,$obat){
 		$this->db->insert($obat,$data);
 	}

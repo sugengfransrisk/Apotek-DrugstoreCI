@@ -13,7 +13,13 @@ class Dashboardmodel extends CI_Model {
 	public function getAkunCount(){
 		return $this->db->count_all('admin');
 	}
+	public function getTrCount(){
+		return $this->db->count_all('transaksi');
+	}
 	
+	public function getPgCount(){
+		return $this->db->count_all('pegawai');
+	}
 
 }
 

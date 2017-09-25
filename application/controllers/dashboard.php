@@ -21,7 +21,9 @@ class Dashboard extends CI_Controller {
 			'primary_view'	=> 'dashboard_view',
 			'obtCount'		=> $this->dashboardmodel->getObtCount(),
 			'psnCount'		=> $this->dashboardmodel->getPsnCount(),
-			'akunCount'		=> $this->dashboardmodel->getAkunCount()
+			'akunCount'		=> $this->dashboardmodel->getAkunCount(),
+			'trCount'		=> $this->dashboardmodel->getTrCount(),
+			'pgCount'		=> $this->dashboardmodel->getPgCount()
 		);
 		$data['main_view'] = 'dashboard_view';
 		$this->load->view('template', $data);

@@ -58,10 +58,10 @@
                
                 <!-- /.dropdown -->
                                            <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> Login As <b>
                                     <img src="<?php echo base_url() ?>assets/images/upload/profile/default.png" alt=""><?php echo $this->session->userdata('username'); ?>
                                     <span class=" fa fa-angle-down"></span>
-                                </a>
+                                </b></a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                                     <li><a class="prof" id="<?php echo $this->db->where('USERNAME', $this->session->userdata('username'))->get('admin')->row('ID_ADMIN') ?>"><i class="fa fa-user pull-right"></i> Profile</a></li>
                                     <li><a href="<?php echo base_url() ?>dashboard/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
@@ -96,7 +96,7 @@
                             <a href="#"><i class="fa fa-glass fa-fw"></i> Obat<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url('apotek/index')?>">Daftar Obat</a>
+                                    <a href="<?php echo base_url('apotek/index')?>">Data Obat</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url('apotek/tambah')?>">Input Obat</a>
@@ -120,12 +120,16 @@
                             <a href="#"><i class="fa fa-user-md fa-fw"></i> Petugas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?php echo base_url('petugas/index')?>">Daftar Petugas</a>
+                                    <a href="<?php echo base_url('pegawai/index')?>">Daftar Petugas</a>
                                 </li>
                                 <li>
-                                    <a href="<?php echo base_url('petugas/tambah')?>">Input petugas</a>
+                                    <a href="<?php echo base_url('pegawai/tambah')?>">Input Petugas</a>
                                 </li>
                             </ul>
+                             <li>
+                            <a href="<?php echo base_url('transaksi/index')?>"><i class="fa fa-shopping-cart fa-fw"></i>Transaksi<span class=""></span></a>
+                          <!-- /.nav-second-level -->
+                        </li>
                                 <?php endif; ?>
                              <?php if($this->session->userdata('role')=='admin'): ?>
                              <li>
@@ -139,6 +143,10 @@
                                 </li>
 
                             </ul>
+                             <li>
+                            <a href="<?php echo base_url('transaksi/index')?>"><i class="fa fa-shopping-cart fa-fw"></i>Transaksi<span class=""></span></a>
+                          <!-- /.nav-second-level -->
+                        </li>
                         <?php endif; ?>
                     
                 

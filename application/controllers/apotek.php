@@ -7,12 +7,15 @@ class apotek extends CI_Controller{
 		parent::__construct();		
 		$this->load->model('apotekmodel');
 		$this->load->helper('url');
-		if($this->session->userdata('logged_in') == false){
+		if($this->session->userdata('role') == 'admin'){
 			redirect('login');
 		}
 	
 
 	}
+
+
+
 
 	function tambah(){
 
@@ -39,6 +42,7 @@ class apotek extends CI_Controller{
 		$produksi = $this->input->post('produksi');
 		$tahun_pembelian = $this->input->post('tahun_pembelian');
 		$harga = $this->input->post('harga');
+		$deskripsi = $this->input->post('deskripsi');
 
 
  
@@ -46,7 +50,8 @@ class apotek extends CI_Controller{
 			'nama' => $nama,
 			'produksi' => $produksi,
 			'tahun_pembelian' => $tahun_pembelian,
-			'harga' => $harga			
+			'harga' => $harga,			
+			'deskripsi' => $deskripsi
 			);
 		$this->apotekmodel->input_data($data,'obat');
 		redirect('apotek/index');

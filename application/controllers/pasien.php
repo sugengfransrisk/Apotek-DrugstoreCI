@@ -6,7 +6,7 @@ class pasien extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('pasienmodel');
-		if($this->session->userdata('logged_in') == false){
+		if($this->session->userdata('role') == 'admin'){
 			redirect('login');
 		}
 	

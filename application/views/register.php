@@ -13,11 +13,11 @@
                                 <h4>Registrasi Akun Admin</h4>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-email">Nama Lengkap</label>
-                                    <input type="text" name="fullname" placeholder="Nama Lengkap" class="f1-email form-control" id="f1-email">
+                                    <input type="text" name="fullname" placeholder="Nama Lengkap" required="" class="f1-email form-control" id="f1-email">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-password">Username</label>
-                                    <input type="text" name="username" placeholder="Username" class="f1-password form-control" id="f1-password">
+                                    <input type="text" name="username" placeholder="Username" required="" class="f1-password form-control" id="f1-password">
                                 </div>
                                  <div class="form-group">
                                   <select class="form-control" placeholder="Role" name="role" id="role">
@@ -28,8 +28,8 @@
                                 </div> 
                                 <div class="form-group">
                                     <label class="sr-only">Password</label>
-                                    <input type="password" name="password" placeholder="Password" 
-                                                        class="f1-repeat-password form-control" id="f1-repeat-password">
+                                    <input type="password" minlength="5" name="password" placeholder="Password" 
+                                    class="f1-repeat-password form-control" id="f1-repeat-password">
                                 </div>
                                 <input type="text" name="status" hidden="" value="active" class="">
 

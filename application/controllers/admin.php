@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('adminmodel');
 		$this->load->helper('url');
-		if($this->session->userdata('logged_in') == false){
+		if($this->session->userdata('role') == 'pegawai'){
 			redirect('login');
 		}
 	
